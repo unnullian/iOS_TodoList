@@ -151,8 +151,9 @@ class TodoListCell: UICollectionViewCell {
     }
     
     @IBAction func deleteButtonTapped(_ sender: Any) {
-        // TODO: deleteButton 처리 
-        deleteButtonTapHandler?()
+        // TODO: deleteButton 처리
+        
+        
     }
 }
 
