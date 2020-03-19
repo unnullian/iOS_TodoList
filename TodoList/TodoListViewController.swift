@@ -82,6 +82,18 @@ extension TodoListViewController: UICollectionViewDataSource {
         }
 
         cell.updateUI(todo: todo)
+        
+        cell.doneButtonTapHandler = { [weak self] isDone in
+            todo.isDone = isDone
+            self?.todoListViewModel.updateTodo(todo)
+            self?.collectionView.reloadData()
+        }
+        
+        cell.deleteButtonTapHandler = { [weak self] in
+            self?.todoListViewModel.deleteTodo(todo)
+            self?.collectionView.reloadData()
+        }
+        
         return cell
     }
     
@@ -192,7 +204,6 @@ class TodoListCell: UICollectionViewCell {
         super.prepareForReuse()
         reset()
     }
-    
     
     func updateUI(todo: Todo) {
         checkButton.isSelected = todo.isDone
