@@ -20,6 +20,14 @@ class TodoListViewController: UIViewController {
     }
     
     
+    
+    @IBAction func tapBG(_ sender: Any) {
+        print("---> tap bg")
+        inputTextField.resignFirstResponder()
+    }
+}
+
+extension TodoListViewController {
     @objc private func adjustInputView(noti: Notification) {
         guard let userInfo = noti.userInfo else { return }
         guard let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
@@ -30,11 +38,6 @@ class TodoListViewController: UIViewController {
             inputViewBottom.constant = 0
         }
         print("---> Keyboard End Frame: \(keyboardFrame)")
-    }
-    
-    @IBAction func tapBG(_ sender: Any) {
-        print("---> tap bg")
-        inputTextField.resignFirstResponder()
     }
 }
 
@@ -67,7 +70,7 @@ extension TodoListViewController: UICollectionViewDataSource {
 extension TodoListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width: CGFloat = collectionView.bounds.width
-        let height: CGFloat = 60
+        let height: CGFloat = 50
         return CGSize(width: width, height: height)
     }
 }

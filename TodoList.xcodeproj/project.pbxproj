@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		944C561324232F5800CF8FF5 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944C561224232F5800CF8FF5 /* Todo.swift */; };
+		944C561524232F9F00CF8FF5 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944C561424232F9F00CF8FF5 /* Storage.swift */; };
 		94AE92AC2422712E00AB7AE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AE92AB2422712E00AB7AE5 /* AppDelegate.swift */; };
 		94AE92AE2422712E00AB7AE5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AE92AD2422712E00AB7AE5 /* SceneDelegate.swift */; };
 		94AE92B32422712E00AB7AE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94AE92B12422712E00AB7AE5 /* Main.storyboard */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		944C561224232F5800CF8FF5 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		944C561424232F9F00CF8FF5 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		94AE92A82422712E00AB7AE5 /* TodoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94AE92AB2422712E00AB7AE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94AE92AD2422712E00AB7AE5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +64,8 @@
 				94AE92AD2422712E00AB7AE5 /* SceneDelegate.swift */,
 				94AE92B12422712E00AB7AE5 /* Main.storyboard */,
 				94AE92BF2422716E00AB7AE5 /* TodoListViewController.swift */,
+				944C561224232F5800CF8FF5 /* Todo.swift */,
+				944C561424232F9F00CF8FF5 /* Storage.swift */,
 				94AE92B42422712F00AB7AE5 /* Assets.xcassets */,
 				94AE92B62422712F00AB7AE5 /* LaunchScreen.storyboard */,
 				94AE92B92422712F00AB7AE5 /* Info.plist */,
@@ -141,6 +147,8 @@
 				94AE92C02422716E00AB7AE5 /* TodoListViewController.swift in Sources */,
 				94AE92AC2422712E00AB7AE5 /* AppDelegate.swift in Sources */,
 				94AE92AE2422712E00AB7AE5 /* SceneDelegate.swift in Sources */,
+				944C561324232F5800CF8FF5 /* Todo.swift in Sources */,
+				944C561524232F9F00CF8FF5 /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
