@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+// TODO: Codable과 Equatable 추가
 struct Todo: Codable, Equatable {
     let id: Int
     var isDone: Bool
@@ -15,13 +17,13 @@ struct Todo: Codable, Equatable {
     var isToday: Bool
     
     mutating func update(isDone: Bool, detail: String, isToday: Bool) {
-        self.isDone = isDone
-        self.detail = detail
-        self.isToday = isToday
+        // TODO: update 로직 추가
+        
     }
     
     static func == (lhs: Self, rhs: Self) -> Bool {
-        return lhs.id == rhs.id
+        // TODO: 동등 조건 추가
+        return true
     }
 }
 
@@ -34,25 +36,22 @@ class TodoManager {
     var todos: [Todo] = []
     
     func createTodo(detail: String, isToday: Bool) -> Todo {
-        let nextId = TodoManager.lastId + 1
-        TodoManager.lastId = nextId
-        return Todo(id: nextId, isDone: false, detail: detail, isToday: isToday)
+        //TODO: create로직 추가
+        return Todo(id: 1, isDone: false, detail: "2", isToday: true)
     }
     
     func addTodo(_ todo: Todo) {
-        todos.append(todo)
-        saveTodo()
+        //TODO: add로직 추가
     }
     
     func deleteTodo(_ todo: Todo) {
-        todos = todos.filter { $0.id != todo.id }
-        saveTodo()
+        //TODO: delete 로직 추가
+        
     }
     
     func updateTodo(_ todo: Todo) {
-        guard let index = todos.firstIndex(of: todo) else { return }
-        todos[index].update(isDone: todo.isDone, detail: todo.detail, isToday: todo.isToday)
-        saveTodo()
+        //TODO: updatee 로직 추가
+        
     }
     
     func saveTodo() {
@@ -61,14 +60,6 @@ class TodoManager {
     
     func retrieveTodo() {
         todos = Storage.retrive("todos.json", from: .documents, as: [Todo].self) ?? []
-        
-        if todos.isEmpty {
-            todos.append(createTodo(detail: "🤔 Weekly Meeting", isToday: true))
-            todos.append(createTodo(detail: "🤷‍♀️ Subscription Meeting", isToday: true))
-            todos.append(createTodo(detail: "☝️ iOS Dev Meet Up", isToday: true))
-            todos.append(createTodo(detail: "🤑 Monthly Meeting", isToday: false))
-            todos.append(createTodo(detail: "🍎 Meeting with Apple", isToday: false))
-        }
         
         let lastId = todos.last?.id ?? 0
         TodoManager.lastId = lastId
