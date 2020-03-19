@@ -61,6 +61,15 @@ class TodoManager {
     
     func retrieveTodo() {
         todos = Storage.retrive("todos.json", from: .documents, as: [Todo].self) ?? []
+        
+        if todos.isEmpty {
+            todos.append(createTodo(detail: "🤔 Weekly Meeting", isToday: true))
+            todos.append(createTodo(detail: "🤷‍♀️ Subscription Meeting", isToday: true))
+            todos.append(createTodo(detail: "☝️ iOS Dev Meet Up", isToday: true))
+            todos.append(createTodo(detail: "🤑 Monthly Meeting", isToday: false))
+            todos.append(createTodo(detail: "🍎 Meeting with Apple", isToday: false))
+        }
+        
         let lastId = todos.last?.id ?? 0
         TodoManager.lastId = lastId
     }

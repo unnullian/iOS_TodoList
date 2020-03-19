@@ -53,7 +53,7 @@ extension TodoListViewController {
         guard let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
         if noti.name == UIResponder.keyboardWillShowNotification {
             let adjustmentHeight = keyboardFrame.height - view.safeAreaInsets.bottom
-            inputViewBottom.constant += adjustmentHeight
+            inputViewBottom.constant = adjustmentHeight
         } else {
             inputViewBottom.constant = 0
         }
