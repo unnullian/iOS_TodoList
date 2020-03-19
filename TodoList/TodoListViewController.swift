@@ -127,11 +127,6 @@ class TodoListCell: UICollectionViewCell {
     
     func updateUI(todo: Todo) {
         // TODO: 셀 업데이트 하기
-        checkButton.isSelected = todo.isDone
-        descriptionLabel.text = todo.detail
-        descriptionLabel.alpha = todo.isDone ? 0.2 : 1
-        deleteButton.isHidden = todo.isDone == false
-        showStrikeThrough(todo.isDone)
     }
     
     private func showStrikeThrough(_ show: Bool) {
