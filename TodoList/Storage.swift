@@ -32,6 +32,7 @@ public class Storage {
         let url = directory.url.appendingPathComponent(fileName, isDirectory: false)
         print("---> save to here: \(url)")
         let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
         
         do {
             let data = try encoder.encode(obj)
