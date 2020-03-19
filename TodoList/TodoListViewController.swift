@@ -49,12 +49,39 @@ extension TodoListViewController: UICollectionViewDelegateFlowLayout {
 }
 
 class TodoListCell: UICollectionViewCell {
+    
+    @IBOutlet weak var checkButton: UIButton!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var strikeThroughView: UIView!
+    
+    @IBOutlet weak var strikeThroughWidth: NSLayoutConstraint!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        showStrikeThrough(false)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        showStrikeThrough(false)
+    }
+    
+    private func showStrikeThrough(_ show: Bool) {
+        if show {
+            strikeThroughWidth.constant
+            = descriptionLabel.bounds.width
+        } else {
+            strikeThroughWidth.constant
+                = 0
+        }
     }
 }
 
 class TodoListHeaderView: UICollectionReusableView {
+    
+    @IBOutlet weak var sectionTitleLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
