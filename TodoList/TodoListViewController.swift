@@ -14,6 +14,9 @@ class TodoListViewController: UIViewController {
     @IBOutlet weak var inputViewBottom: NSLayoutConstraint!
     @IBOutlet weak var inputTextField: UITextField!
     
+    @IBOutlet weak var isTodayButton: UIButton!
+    @IBOutlet weak var addButton: UIButton!
+    
     let todoListViewModel = TodoViewModel()
     
     override func viewDidLoad() {
@@ -24,15 +27,20 @@ class TodoListViewController: UIViewController {
         todoListViewModel.loadTasks()
     }
     
+    @IBAction func isTodayButtonTapped(_ sender: Any) {
+        isTodayButton.isSelected = !isTodayButton.isSelected
+    }
+    
     @IBAction func addTaskButtonTapped(_ sender: Any) {
         // add task to view model
         // and tableview reload or update
         guard let detail = inputTextField.text, detail.isEmpty == false else { return }
 
-        let todo = TodoManager.shared.createTodo(detail: detail, isToday: true)
+        let todo = TodoManager.shared.createTodo(detail: detail, isToday: isTodayButton.isSelected)
         todoListViewModel.addTodo(todo)
         collectionView.reloadData()
         inputTextField.text = ""
+        isTodayButton.isSelected = false
     }
     
     

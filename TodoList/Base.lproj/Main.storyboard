@@ -127,16 +127,34 @@
                                 <rect key="frame" x="0.0" y="753" width="414" height="60"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="I want to...." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fjk-ek-SMo">
-                                        <rect key="frame" x="8" y="13" width="341" height="34"/>
+                                        <rect key="frame" x="8" y="13" width="290" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWa-yQ-Ile">
-                                        <rect key="frame" x="364" y="13" width="34" height="34"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdN-La-w2v">
+                                        <rect key="frame" x="308" y="12.5" width="45" height="35"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="34" id="GyF-vh-Z62"/>
-                                            <constraint firstAttribute="height" constant="34" id="Xeu-2n-OYj"/>
+                                            <constraint firstAttribute="height" constant="35" id="M4r-U1-6kZ"/>
+                                            <constraint firstAttribute="width" constant="45" id="yD5-UT-KhX"/>
                                         </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Today">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="isTodayButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vci-7t-1gh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWa-yQ-Ile">
+                                        <rect key="frame" x="363" y="12.5" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="35" id="GyF-vh-Z62"/>
+                                            <constraint firstAttribute="height" constant="35" id="Xeu-2n-OYj"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <state key="normal" image="plus" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24" weight="bold"/>
@@ -148,9 +166,11 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="secondarySystemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.16" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="cdN-La-w2v" firstAttribute="centerY" secondItem="nWa-yQ-Ile" secondAttribute="centerY" id="3xn-BX-U1R"/>
+                                    <constraint firstItem="nWa-yQ-Ile" firstAttribute="leading" secondItem="cdN-La-w2v" secondAttribute="trailing" constant="10" id="EVK-F3-OUb"/>
                                     <constraint firstAttribute="trailing" secondItem="nWa-yQ-Ile" secondAttribute="trailing" constant="16" id="JNt-0b-LJQ"/>
                                     <constraint firstItem="Fjk-ek-SMo" firstAttribute="centerY" secondItem="9mF-5q-UhL" secondAttribute="centerY" id="LCB-mh-RCu"/>
-                                    <constraint firstItem="nWa-yQ-Ile" firstAttribute="leading" secondItem="Fjk-ek-SMo" secondAttribute="trailing" constant="15" id="fHV-tu-hsM"/>
+                                    <constraint firstItem="cdN-La-w2v" firstAttribute="leading" secondItem="Fjk-ek-SMo" secondAttribute="trailing" constant="10" id="OEK-Fq-cfu"/>
                                     <constraint firstAttribute="height" constant="60" id="pxp-MD-t7M"/>
                                     <constraint firstItem="nWa-yQ-Ile" firstAttribute="centerY" secondItem="9mF-5q-UhL" secondAttribute="centerY" id="qQ9-l7-cbC"/>
                                     <constraint firstItem="Fjk-ek-SMo" firstAttribute="leading" secondItem="9mF-5q-UhL" secondAttribute="leading" constant="8" id="sed-0e-m7x"/>
@@ -175,9 +195,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Tasks" image="checkmark.circle.fill" catalog="system" id="zan-H5-GGu"/>
                     <connections>
+                        <outlet property="addButton" destination="nWa-yQ-Ile" id="40y-7X-T9c"/>
                         <outlet property="collectionView" destination="Dac-Tr-eM7" id="MeX-33-IFU"/>
                         <outlet property="inputTextField" destination="Fjk-ek-SMo" id="NBJ-lx-hvK"/>
                         <outlet property="inputViewBottom" destination="nvx-BV-0cz" id="sSa-QM-ECn"/>
+                        <outlet property="isTodayButton" destination="cdN-La-w2v" id="obE-fg-fUD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
