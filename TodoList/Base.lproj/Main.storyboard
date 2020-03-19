@@ -122,7 +122,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="I want to...." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fjk-ek-SMo">
                                         <rect key="frame" x="8" y="13" width="341" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWa-yQ-Ile">
                                         <rect key="frame" x="364" y="13" width="34" height="34"/>
@@ -148,6 +148,7 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Dac-Tr-eM7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3ru-NF-H7J"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Dac-Tr-eM7" secondAttribute="trailing" id="Jc1-hm-UUY"/>
@@ -158,10 +159,22 @@
                             <constraint firstItem="9mF-5q-UhL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="yzH-uI-G1d"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="aFm-e7-3Kp" appends="YES" id="Kqa-WS-aa7"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Tasks" image="checkmark.circle.fill" catalog="system" id="zan-H5-GGu"/>
+                    <connections>
+                        <outlet property="inputTextField" destination="Fjk-ek-SMo" id="NBJ-lx-hvK"/>
+                        <outlet property="inputViewBottom" destination="nvx-BV-0cz" id="sSa-QM-ECn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="aFm-e7-3Kp">
+                    <connections>
+                        <action selector="tapBG:" destination="BYZ-38-t0r" id="gXk-M4-1DP"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-297.10144927536237" y="886.60714285714278"/>
         </scene>
