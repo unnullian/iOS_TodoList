@@ -23,7 +23,6 @@ class TodoListViewController: UIViewController {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(adjustInputView), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(adjustInputView), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
         todoListViewModel.loadTasks()
     }
     
@@ -35,14 +34,12 @@ class TodoListViewController: UIViewController {
         // add task to view model
         // and tableview reload or update
         guard let detail = inputTextField.text, detail.isEmpty == false else { return }
-
         let todo = TodoManager.shared.createTodo(detail: detail, isToday: isTodayButton.isSelected)
         todoListViewModel.addTodo(todo)
         collectionView.reloadData()
         inputTextField.text = ""
         isTodayButton.isSelected = false
     }
-    
     
     @IBAction func tapBG(_ sender: Any) {
         print("---> tap bg")
@@ -132,64 +129,6 @@ extension TodoListViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-
-
-class TaskCell: UITableViewCell {
-    @IBOutlet weak var checkButton: UIButton!
-    @IBOutlet weak var detailLabel: UILabel!
-    @IBOutlet weak var removeButton: UIButton!
-    @IBOutlet weak var strikethroughView: UIView!
-    @IBOutlet weak var strikethroughWidth: NSLayoutConstraint!
-    
-    var doneButtonHandler: ((Bool) -> Void)?
-    var removeButtonHandler: (() -> Void)?
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        reset()
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        reset()
-    }
-    
-    func updateUI(task: Todo) {
-        checkButton.isSelected = task.isDone
-        detailLabel.text = task.detail
-        detailLabel.alpha = task.isDone ? 0.2 : 1
-        removeButton.isHidden = task.isDone == false
-        strikethroughView.isHidden = task.isDone == false
-        strikethroughWidth.constant = task.isDone ? detailLabel.bounds.width : 0
-    }
-    
-    @IBAction func doneButtonTapped(_ sender: UIButton) {
-        checkButton.isSelected = !checkButton.isSelected
-        let isDone = checkButton.isSelected
-        strikethroughView.isHidden = false
-        
-        let strikeWidth = isDone ? detailLabel.bounds.width : 0
-        strikethroughWidth.constant = strikeWidth
-        UIView.animate(withDuration: 0.3, animations: {
-            self.layoutIfNeeded()
-        }) { (complete) in
-            self.doneButtonHandler?(isDone)
-        }
-    }
-    
-    @IBAction func removeButtonTapped(_ sender: UIButton) {
-        removeButtonHandler?()
-    }
-  
-    func reset() {
-        strikethroughView.isHidden = true
-        removeButton.isHidden = true
-        strikethroughWidth.constant = 0
-    }
-    
-}
-
-
 class TodoListCell: UICollectionViewCell {
     
     @IBOutlet weak var checkButton: UIButton!
@@ -198,7 +137,6 @@ class TodoListCell: UICollectionViewCell {
     @IBOutlet weak var strikeThroughView: UIView!
     
     @IBOutlet weak var strikeThroughWidth: NSLayoutConstraint!
-    
     
     var doneButtonTapHandler: ((Bool) -> Void)?
     var deleteButtonTapHandler: (() -> Void)?
